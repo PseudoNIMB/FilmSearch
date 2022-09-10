@@ -16,7 +16,7 @@
 
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imageView1"
             android:scaleType="centerCrop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -24,12 +24,12 @@
             app:srcCompat="@drawable/andor" />
 
         <ImageView
-            android:id="@+id/imageView4"
-            android:scaleType="centerCrop"
+            android:id="@+id/imageView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/mando" />
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/boba" />
 
         <ImageView
             android:id="@+id/imageView3"
@@ -40,12 +40,12 @@
             app:srcCompat="@drawable/kenobi" />
 
         <ImageView
-            android:id="@+id/imageView2"
-            android:scaleType="centerCrop"
+            android:id="@+id/imageView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/boba" />
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/mando" />
 
         <ImageView
             android:id="@+id/imageView5"
@@ -57,7 +57,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/central_menu"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -106,21 +106,22 @@
     </LinearLayout>
 
     <FrameLayout
+        android:id="@+id/bottom_bar"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:background="#2B374E"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="200dp">
-    </FrameLayout>
+        tools:layout_editor_absoluteX="200dp"></FrameLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/diclaimer"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="109dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintBottom_toTopOf="@+id/central_menu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

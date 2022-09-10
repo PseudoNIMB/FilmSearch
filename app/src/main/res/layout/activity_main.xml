@@ -110,34 +110,54 @@
 
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/button1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:textColor="@android:color/white"
+            android:background="?selectableItemBackgroundBorderless"
+            android:text="@string/button1"
+            android:onClick="onClickButton1"
+            />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button2" />
+            android:textColor="@android:color/white"
+            android:background="?selectableItemBackgroundBorderless"
+            android:text="@string/button2"
+            android:onClick="onClickButton2"
+            />
 
         <Button
             android:id="@+id/button3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button3" />
+            android:textColor="@android:color/white"
+            android:background="?selectableItemBackgroundBorderless"
+            android:text="@string/button3"
+            android:onClick="onClickButton3"
+            />
 
         <Button
             android:id="@+id/button4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button4" />
+            android:textColor="@android:color/white"
+            android:background="?selectableItemBackgroundBorderless"
+            android:text="@string/button4"
+            android:onClick="onClickButton4"
+            />
 
         <Button
             android:id="@+id/button5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button5" />
+            android:textColor="@android:color/white"
+            android:background="?selectableItemBackgroundBorderless"
+            android:text="@string/button5"
+            android:onClick="onClickButton5"
+            />
     </LinearLayout>
 
     <FrameLayout

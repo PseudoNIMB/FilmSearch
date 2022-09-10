@@ -3,7 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/layout/activity_main.xml" value="0.2601851851851852" />
+        <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/drawable/background.xml" value="0.153" />
+        <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/layout/activity_main.xml" value="0.22" />
       </map>
     </option>
   </component>

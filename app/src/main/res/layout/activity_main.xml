@@ -118,7 +118,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/poster_1"
             android:layout_width="150dp"
-            android:layout_height="200dp"
+            android:layout_height="150dp"
             app:cardCornerRadius="15dp">
 
             <ImageView
@@ -130,7 +130,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/poster_2"
             android:layout_width="150dp"
-            android:layout_height="200dp"
+            android:layout_height="150dp"
             app:cardCornerRadius="15dp">
 
             <ImageView
@@ -142,7 +142,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/poster_3"
             android:layout_width="150dp"
-            android:layout_height="200dp"
+            android:layout_height="150dp"
             app:cardCornerRadius="15dp">
 
             <ImageView
@@ -154,7 +154,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/poster_4"
             android:layout_width="150dp"
-            android:layout_height="200dp"
+            android:layout_height="150dp"
             app:cardCornerRadius="15dp">
 
             <ImageView

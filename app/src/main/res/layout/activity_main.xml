@@ -105,7 +105,54 @@
         app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/poster_1"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            app:cardCornerRadius="15dp">
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/returnfilm"
+                android:scaleType="centerCrop"/>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/poster_2"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            app:cardCornerRadius="15dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/empire"
+                android:scaleType="centerCrop"/>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/poster_3"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            app:cardCornerRadius="15dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/revenge"
+                android:scaleType="centerCrop"/>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/poster_4"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            app:cardCornerRadius="15dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/newhope"
+                android:scaleType="centerCrop"/>
+        </androidx.cardview.widget.CardView>
     </androidx.gridlayout.widget.GridLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

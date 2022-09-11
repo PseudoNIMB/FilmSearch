@@ -4,6 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/drawable/background.xml" value="0.153" />
+        <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/drawable/ic_round_favorite.xml" value="0.1" />
+        <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/drawable/ic_round_menu.xml" value="0.1525" />
+        <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/drawable/ic_round_settings.xml" value="0.1" />
+        <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/drawable/ic_round_view_compilation.xml" value="0.1" />
+        <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/drawable/ic_round_watch_later.xml" value="0.1" />
         <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/layout/activity_main.xml" value="0.10101010101010101" />
       </map>
     </option>

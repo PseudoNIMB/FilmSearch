@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
+@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,4 +46,4 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-//Проблема с гит тест 2
+//Проблема с гит тест 22

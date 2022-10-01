@@ -14,6 +14,17 @@ class MainActivity : AppCompatActivity() {
         initNavigation()
     }
 
+    val filmsDataBase = listOf(
+        Film("Back to the Future", R.drawable.backtothefuture, "Back to the Future"),
+        Film("Flash", R.drawable.flash, "Flash"),
+        Film("Ghostbusters", R.drawable.ghostbusters, "GhostBusters!"),
+        Film("Jaws", R.drawable.jaws, "Jaws"),
+        Film("Jurassic Park", R.drawable.jurassic, "Jurassic park"),
+        Film("Raiders", R.drawable.raiders, "Raiders"),
+        Film("Top Gun", R.drawable.topgun, "Top Gun"),
+        Film("WandaVision", R.drawable.wandavision, "WandaVision")
+    )
+
     private fun initNavigation() {
         topAppBar.setOnMenuItemClickListener {
             when (it.itemId) {

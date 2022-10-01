@@ -1,5 +1,6 @@
 package ru.pseudonimb.filmsearch
 
+import FilmListRecyclerAdapter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -24,6 +25,8 @@ class MainActivity : AppCompatActivity() {
         Film("Top Gun", R.drawable.topgun, "Top Gun"),
         Film("WandaVision", R.drawable.wandavision, "WandaVision")
     )
+
+    private lateinit var filmsAdapter: FilmListRecyclerAdapter
 
     private fun initNavigation() {
         topAppBar.setOnMenuItemClickListener {

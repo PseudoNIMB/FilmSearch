@@ -3,12 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/drawable-square/ic_baseline_share_24.xml" value="0.2715" />
         <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/drawable/background.xml" value="0.153" />
         <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/drawable/ic_round_favorite.xml" value="0.1" />
         <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/drawable/ic_round_menu.xml" value="0.1525" />
         <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/drawable/ic_round_settings.xml" value="0.1" />
         <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/drawable/ic_round_view_compilation.xml" value="0.1" />
         <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/drawable/ic_round_watch_later.xml" value="0.1" />
+        <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/layout/activity_detail.xml" value="0.1787037037037037" />
+        <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/layout/activity_details.xml" value="0.1787037037037037" />
         <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/layout/film_item.xml" value="0.1787037037037037" />
         <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/menu/navimenu.xml" value="0.18333333333333332" />

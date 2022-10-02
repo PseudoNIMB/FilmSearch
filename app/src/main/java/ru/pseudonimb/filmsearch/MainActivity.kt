@@ -1,7 +1,4 @@
-@file:Suppress("DEPRECATION")
-
 package ru.pseudonimb.filmsearch
-
 
 import kotlinx.android.synthetic.main.activity_main.*
 import androidx.appcompat.app.AppCompatActivity

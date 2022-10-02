@@ -1,15 +1,12 @@
+@file:Suppress("DEPRECATION")
+
 package ru.pseudonimb.filmsearch
 
-import FilmListRecyclerAdapter
-import TopSpacingItemDecoration
-import kotlinx.android.synthetic.main.activity_main.*
 
-import android.content.Intent
+import kotlinx.android.synthetic.main.activity_main.*
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.fragment_home.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

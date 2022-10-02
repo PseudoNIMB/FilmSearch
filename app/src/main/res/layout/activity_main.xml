@@ -24,6 +24,6 @@
         app:itemIconTint="@android:color/white"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/navimenu"/>
+        app:menu="@menu/navimenu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

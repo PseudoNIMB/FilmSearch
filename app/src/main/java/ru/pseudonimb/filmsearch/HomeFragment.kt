@@ -1,21 +1,16 @@
 package ru.pseudonimb.filmsearch
 
-import FilmListRecyclerAdapter
-import TopSpacingItemDecoration
-import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
-    val filmsDataBase = listOf(
+    private val filmsDataBase = listOf(
         Film("Flash", R.drawable.flash, "Description"),
         Film("Ghost Busters!", R.drawable.ghostbusters, "Description"),
         Film("Back to the Future", R.drawable.backtothefuture, "Description"),

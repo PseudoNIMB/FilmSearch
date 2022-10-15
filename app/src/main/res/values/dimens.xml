@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="cardHeight">150dp</dimen>
+    <dimen name="appBarHeight">200dp</dimen>
+    <dimen name="minAppBarHeight">60dp</dimen>
+    <dimen name="standEight">8dp</dimen>
+    <dimen name="doubleEight">16dp</dimen>
+    <dimen name="zero">0dp</dimen>
+    <dimen name="one">1dp</dimen>
+    <dimen name="ten">10dp</dimen>
+</resources>

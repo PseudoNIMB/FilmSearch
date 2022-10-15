@@ -23,7 +23,7 @@
 
         <TextView
             android:id="@+id/title"
-            android:layout_width="@dimen/zero"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:padding="@dimen/standEight"
@@ -35,8 +35,8 @@
 
         <TextView
             android:id="@+id/description"
-            android:layout_width="@dimen/zero"
-            android:layout_height="@dimen/zero"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:padding="@dimen/standEight"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@+id/poster"

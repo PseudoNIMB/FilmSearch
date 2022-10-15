@@ -32,7 +32,7 @@ class FavoritesFragment : Fragment() {
             })
             //Присваиваем адаптер
             adapter = filmsAdapter
-            //Присвои layoutmanager
+            //Присваиваем layout manager
             layoutManager = LinearLayoutManager(requireContext())
             //Применяем декоратор для отступов
             val decorator = TopSpacingItemDecoration(8)

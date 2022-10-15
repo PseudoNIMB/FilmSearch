@@ -63,8 +63,12 @@ class DetailsFragment : Fragment() {
         details_description.text = film.description
 
         details_favorites.setImageResource(
-            if (film.isInFavorites) R.drawable.ic_baseline_favorite_24
-            else R.drawable.ic_baseline_favorite_border_24
+            if (film.isInFavorites) {
+                R.drawable.ic_baseline_favorite_24
+            }
+            else {
+                R.drawable.ic_baseline_favorite_border_24
+            }
         )
     }
 }

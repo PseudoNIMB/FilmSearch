@@ -5,7 +5,6 @@
     <dimen name="minAppBarHeight">60dp</dimen>
     <dimen name="standEight">8dp</dimen>
     <dimen name="doubleEight">16dp</dimen>
-    <dimen name="zero">0dp</dimen>
     <dimen name="one">1dp</dimen>
     <dimen name="ten">10dp</dimen>
 </resources>

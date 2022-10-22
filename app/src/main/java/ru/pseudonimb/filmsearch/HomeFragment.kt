@@ -1,6 +1,8 @@
 package ru.pseudonimb.filmsearch
 
 import android.os.Bundle
+import android.transition.Scene
+import android.transition.TransitionManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +10,7 @@ import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.merge_home_screen_content.*
 import java.util.*
 
 class HomeFragment : Fragment() {
@@ -83,6 +86,9 @@ class HomeFragment : Fragment() {
                 return true
             }
         })
+
+        val scene = Scene.getSceneForLayout(home_fragment_root, R.layout.merge_home_screen_content, requireContext())
+        TransitionManager.go(scene)
     }
 
 

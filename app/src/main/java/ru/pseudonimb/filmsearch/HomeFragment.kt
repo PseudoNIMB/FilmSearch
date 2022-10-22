@@ -69,7 +69,7 @@ class HomeFragment : Fragment() {
             })
             //Присваиваем адаптер
             adapter = filmsAdapter
-            //Присвои layoutmanager
+            //Присваиваем layoutmanager
             layoutManager = LinearLayoutManager(requireContext())
             //Применяем декоратор для отступов
             val decorator = TopSpacingItemDecoration(8)

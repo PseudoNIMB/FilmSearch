@@ -1,6 +1,11 @@
 package ru.pseudonimb.filmsearch
 
 import android.os.Bundle
+import android.transition.Scene
+import android.transition.Slide
+import android.transition.TransitionManager
+import android.transition.TransitionSet
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +13,7 @@ import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.merge_home_screen_content.*
 import java.util.*
 
 class HomeFragment : Fragment() {
@@ -37,6 +43,22 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val scene = Scene.getSceneForLayout(home_fragment_root, R.layout.merge_home_screen_content, requireContext())
+        //Создаем анимацию выезда поля поиска сверхк
+        val searchSlide = Slide(Gravity.TOP).addTarget(R.id.search_view)
+        //Создаем анимацию выезда RV снизу
+        val recyclerSlide = Slide(Gravity.BOTTOM).addTarget(R.id.main_recycler)
+        //Создаем экземпляр TransitionSet, который объеденит все наши анимации
+        val customTransition = TransitionSet().apply {
+            //Устанавливаем время за которое будет проходить анимация
+            duration = 500
+            //Добавляем сами анимации
+            addTransition(recyclerSlide)
+            addTransition(searchSlide)
+        }
+        //Также запускаем через TransitionManager, но вторым параметром передаем нашу кастомную анимацию
+        TransitionManager.go(scene, customTransition)
+
         //находим наш RV
         main_recycler.apply {
             //Инициализируем наш адаптер в конструктор передаем анонимно инициализированный интерфейс
@@ -47,7 +69,7 @@ class HomeFragment : Fragment() {
             })
             //Присваиваем адаптер
             adapter = filmsAdapter
-            //Присвои layoutmanager
+            //Присваиваем layoutmanager
             layoutManager = LinearLayoutManager(requireContext())
             //Применяем декоратор для отступов
             val decorator = TopSpacingItemDecoration(8)

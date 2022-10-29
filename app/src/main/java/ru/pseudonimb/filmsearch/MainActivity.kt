@@ -1,9 +1,7 @@
 package ru.pseudonimb.filmsearch
 
-import kotlinx.android.synthetic.main.activity_main.*
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 
 class MainActivity : AppCompatActivity() {

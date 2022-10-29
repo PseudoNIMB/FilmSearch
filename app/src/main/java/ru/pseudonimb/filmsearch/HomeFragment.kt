@@ -7,9 +7,7 @@ import android.view.ViewGroup
 import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.android.synthetic.main.fragment_home.main_recycler
-import kotlinx.android.synthetic.main.merge_home_screen_content.*
+
 import java.util.*
 
 class HomeFragment : Fragment() {
@@ -37,6 +35,7 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false)
+
     }
 
 
@@ -59,8 +58,7 @@ class HomeFragment : Fragment() {
         }
 
         //Подключаем слушателя изменений введенного текста в поиска
-        search_view.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
-            androidx.appcompat.widget.SearchView.OnQueryTextListener {
+        search_view.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             //Этот метод отрабатывает при нажатии кнопки "поиск" на софт клавиатуре
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return true

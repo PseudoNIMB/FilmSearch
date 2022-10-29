@@ -44,6 +44,11 @@ class MainActivity : AppCompatActivity() {
         bottom_navigation.setOnNavigationItemSelectedListener {
 
             when (it.itemId) {
+                R.id.home -> {
+                    Toast.makeText(this, R.string.menu_home_title_text, Toast.LENGTH_SHORT).show()
+                    true
+                }
+
                 R.id.favorites -> {
                     Toast.makeText(this, R.string.menu_favorites_title, Toast.LENGTH_SHORT).show()
                     true

@@ -24,6 +24,8 @@ class FavoritesFragment : Fragment() {
         //Получаем список при транзакции фрагмента
         val favoritesList: List<Film> = emptyList()
 
+        AnimationHelper.performFragmentCircularRevealAnimation(favorites_fragment_root, requireActivity(), 1)
+
         favorites_recycler.apply {
             filmsAdapter = FilmListRecyclerAdapter(object : FilmListRecyclerAdapter.OnItemClickListener{
                 override fun click(film: Film) {

@@ -9,18 +9,27 @@ import ru.pseudonimb.filmsearch.databinding.FragmentWatchLaterBinding
 
 class WatchLaterFragment : Fragment() {
 
-    private lateinit var binding: FragmentWatchLaterBinding
+    private var _binding: FragmentWatchLaterBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_watch_later, container, false)
+        _binding = FragmentWatchLaterBinding.inflate(inflater, container, false)
+        val view = binding.root
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         AnimationHelper.performFragmentCircularRevealAnimation(binding.watchLaterFragmentRoot, requireActivity(), 3)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

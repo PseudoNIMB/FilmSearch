@@ -11,14 +11,17 @@ import ru.pseudonimb.filmsearch.databinding.FragmentFavoritesBinding
 class FavoritesFragment : Fragment() {
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
 
-    private lateinit var binding: FragmentFavoritesBinding
+    private var _binding: FragmentFavoritesBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_favorites, container, false)
+        _binding = FragmentFavoritesBinding.inflate(inflater,container,false)
+        val view = binding.root
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -44,5 +47,10 @@ class FavoritesFragment : Fragment() {
         }
         //Кладем нашу БД в RV
         filmsAdapter.addItems(favoritesList)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

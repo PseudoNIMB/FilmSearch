@@ -30,7 +30,7 @@ class FilmListRecyclerAdapter(private val clickListener: OnItemClickListener) : 
                 //Обрабатываем нажатие на весь элемент целиком(можно сделать на отдельный элемент
                 //напрмер, картинку) и вызываем метод нашего листенера, который мы получаем из
                 //конструктора адаптера
-                holder.binding.itemContainer.setOnClickListener {
+                binding.itemContainer.setOnClickListener {
                     clickListener.click(items[position])
                 }
             }
@@ -39,7 +39,7 @@ class FilmListRecyclerAdapter(private val clickListener: OnItemClickListener) : 
 
     //Метод для добавления объектов в наш список
     fun addItems(list: List<Film>) {
-        //Сначала очишаем(если не реализовать DiffUtils)
+        //Сначала очищаем(если не реализовать DiffUtils)
         items.clear()
         //Добавляем
         items.addAll(list)

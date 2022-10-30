@@ -25,22 +25,22 @@ class HomeFragment : Fragment() {
 
         )
 
-    private lateinit var binding: FragmentHomeBinding
+    private var _binding: FragmentHomeBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         retainInstance = true
-        binding = FragmentHomeBinding.inflate(layoutInflater)
-        val view = binding.root
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
-
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        val view = binding.root
+        return view
     }
 
 
@@ -80,7 +80,7 @@ class HomeFragment : Fragment() {
                 //Фильтруем список на поискк подходящих сочетаний
                 val result = filmsDataBase.filter {
                     //Чтобы все работало правильно, нужно и запроси и имя фильма приводить к нижнему регистру
-                    it.title.toLowerCase(Locale.getDefault())
+                    it.title.lowercase(Locale.getDefault())
                         .contains(newText.toLowerCase(Locale.getDefault()))
                 }
                 //Добавляем в адаптер
@@ -106,5 +106,10 @@ class HomeFragment : Fragment() {
             val decorator = TopSpacingItemDecoration(8)
             addItemDecoration(decorator)
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import ru.pseudonimb.filmsearch.databinding.FragmentFavoritesBinding
+import ru.pseudonimb.filmsearch.databinding.FragmentHomeBinding
 
 import java.util.*
 
@@ -23,6 +25,8 @@ class HomeFragment : Fragment() {
         Film("WandaVision", R.drawable.wandavision, "Description"),
 
         )
+
+    private lateinit var binding: FragmentHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +46,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        AnimationHelper.performFragmentCircularRevealAnimation(home_fragment_root, requireActivity(), 1)
+        AnimationHelper.performFragmentCircularRevealAnimation(binding.homeFragmentRoot, requireActivity(), 1)
 
         initSearchView()
 
@@ -53,12 +57,12 @@ class HomeFragment : Fragment() {
     }
 
     private fun initSearchView() {
-        search_view.setOnClickListener {
-            search_view.isIconified = false
+        binding.searchView.setOnClickListener {
+            binding.searchView.isIconified = false
         }
 
         //Подключаем слушателя изменений введенного текста в поиска
-        search_view.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             //Этот метод отрабатывает при нажатии кнопки "поиск" на софт клавиатуре
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return true
@@ -85,7 +89,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun initRecycler() {
-        main_recycler.apply {
+        binding.mainRecycler.apply {
             filmsAdapter =
                 FilmListRecyclerAdapter(object : FilmListRecyclerAdapter.OnItemClickListener {
                     override fun click(film: Film) {

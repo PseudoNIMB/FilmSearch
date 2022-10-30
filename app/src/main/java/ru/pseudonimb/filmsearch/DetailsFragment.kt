@@ -6,9 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import ru.pseudonimb.filmsearch.databinding.FragmentDetailsBinding
 
 class DetailsFragment : Fragment() {
     private lateinit var film: Film
+
+    private lateinit var binding: FragmentDetailsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,17 +25,17 @@ class DetailsFragment : Fragment() {
 
         setFilmsDetails()
 
-        details_favorites.setOnClickListener {
+        binding.detailsFavorites.setOnClickListener {
             if (!film.isInFavorites) {
-                details_favorites.setImageResource(R.drawable.ic_baseline_favorite_24)
+                binding.detailsFavorites.setImageResource(R.drawable.ic_baseline_favorite_24)
                 film.isInFavorites = true
             } else {
-                details_favorites.setImageResource(R.drawable.ic_baseline_favorite_border_24)
+                binding.detailsFavorites.setImageResource(R.drawable.ic_baseline_favorite_border_24)
                 film.isInFavorites = false
             }
         }
 
-        details_share.setOnClickListener {
+        binding.detailsShare.setOnClickListener {
             //Создаем интент
             val intent = Intent()
             //Укзываем action с которым он запускается
@@ -55,13 +58,13 @@ class DetailsFragment : Fragment() {
         val film = arguments?.get("film") as Film
 
         //Устанавливаем заголовок
-        details_toolbar.title = film.title
+        binding.detailsToolbar.title = film.title
         //Устанавливаем картинку
-        details_poster.setImageResource(film.poster)
+        binding.detailsPoster.setImageResource(film.poster)
         //Устанавливаем описание
-        details_description.text = film.description
+        binding.detailsDescription.text = film.description
 
-        details_favorites.setImageResource(
+        binding.detailsFavorites.setImageResource(
             if (film.isInFavorites) {
                 R.drawable.ic_baseline_favorite_24
             }

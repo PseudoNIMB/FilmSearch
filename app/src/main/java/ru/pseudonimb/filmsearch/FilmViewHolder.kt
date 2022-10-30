@@ -9,7 +9,7 @@ import ru.pseudonimb.filmsearch.databinding.FilmItemBinding
 class FilmViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     //Привязываем view из layout к переменным
 
-    private lateinit var binding: FilmItemBinding
+    lateinit var binding: FilmItemBinding
 
     private val title = binding.title
     private val poster = binding.poster

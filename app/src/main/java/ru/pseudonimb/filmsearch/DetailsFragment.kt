@@ -11,13 +11,17 @@ import ru.pseudonimb.filmsearch.databinding.FragmentDetailsBinding
 class DetailsFragment : Fragment() {
     private lateinit var film: Film
 
-    private lateinit var binding: FragmentDetailsBinding
+    private var _binding: FragmentDetailsBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_details, container, false)
+        _binding = FragmentDetailsBinding.inflate(inflater,container,false)
+        val view = binding.root
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -72,5 +76,10 @@ class DetailsFragment : Fragment() {
                 R.drawable.ic_baseline_favorite_border_24
             }
         )
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

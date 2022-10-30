@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import ru.pseudonimb.filmsearch.databinding.FragmentFavoritesBinding
 import ru.pseudonimb.filmsearch.databinding.FragmentHomeBinding
 
 import java.util.*
@@ -31,6 +30,8 @@ class HomeFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         retainInstance = true
+        binding = FragmentHomeBinding.inflate(layoutInflater)
+        val view = binding.root
     }
 
     override fun onCreateView(

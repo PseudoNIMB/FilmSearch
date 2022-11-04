@@ -3,13 +3,11 @@ package ru.pseudonimb.filmsearch
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import ru.pseudonimb.filmsearch.databinding.FilmItemBinding
 
 //в параметр передаем слушатель, чтобы мы потом могли обрабатывать нажатия из класса активити
 class FilmListRecyclerAdapter(private val clickListener: OnItemClickListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     //Здесь у нас хранится список элементов для RV
     private val items = mutableListOf<Film>()
-    private lateinit var binding: FilmItemBinding
 
     //Этот метод нужно переопределить на возврат количества елементов в списке RV
     override fun getItemCount() = items.size
@@ -24,13 +22,15 @@ class FilmListRecyclerAdapter(private val clickListener: OnItemClickListener) : 
         //Проверяем какой у нас ViewHolder
         when (holder) {
             is FilmViewHolder -> {
+
+
                 //Вызываем метод bind(), который мы создали и передаем туда объект
                 //из нашей базы данных с указанием позиции
                 holder.bind(items[position])
                 //Обрабатываем нажатие на весь элемент целиком(можно сделать на отдельный элемент
                 //напрмер, картинку) и вызываем метод нашего листенера, который мы получаем из
                 //конструктора адаптера
-                binding.itemContainer.setOnClickListener {
+                holder.itemView.setOnClickListener {
                     clickListener.click(items[position])
                 }
             }

@@ -5,6 +5,7 @@
     <string name="menu_favorites_title">Избранное</string>
     <string name="menu_watch_later_title">Посмотреть позже</string>
     <string name="menu_selections_title">Подборки</string>
+    <string name="menu_home_title_text">Дом</string>
     //
 
 </resources>

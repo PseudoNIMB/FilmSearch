@@ -3,10 +3,11 @@ package ru.pseudonimb.filmsearch
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.film_item.view.*
+import ru.pseudonimb.filmsearch.databinding.FilmItemBinding
 
 //в параметр передаем слушатель, чтобы мы потом могли обрабатывать нажатия из класса активити
-class FilmListRecyclerAdapter(private val clickListener: OnItemClickListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class FilmListRecyclerAdapter(private val clickListener: OnItemClickListener)
+    : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     //Здесь у нас хранится список элементов для RV
     private val items = mutableListOf<Film>()
 
@@ -15,7 +16,8 @@ class FilmListRecyclerAdapter(private val clickListener: OnItemClickListener) : 
 
     //В этом методе мы привязываем наш view holder и передаем туда "надутую" верстку нашего фильма
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return FilmViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.film_item, parent, false))
+        return FilmViewHolder(FilmItemBinding.inflate(LayoutInflater.from(parent.context)
+            , parent,false))
     }
 
     //В этом методе будет привзяка полей из объекта Film, к view из film_item.xml
@@ -23,13 +25,15 @@ class FilmListRecyclerAdapter(private val clickListener: OnItemClickListener) : 
         //Проверяем какой у нас ViewHolder
         when (holder) {
             is FilmViewHolder -> {
+
+
                 //Вызываем метод bind(), который мы создали и передаем туда объект
                 //из нашей базы данных с указанием позиции
                 holder.bind(items[position])
                 //Обрабатываем нажатие на весь элемент целиком(можно сделать на отдельный элемент
                 //напрмер, картинку) и вызываем метод нашего листенера, который мы получаем из
                 //конструктора адаптера
-                holder.itemView.item_container.setOnClickListener {
+                holder.itemView.setOnClickListener {
                     clickListener.click(items[position])
                 }
             }
@@ -38,7 +42,7 @@ class FilmListRecyclerAdapter(private val clickListener: OnItemClickListener) : 
 
     //Метод для добавления объектов в наш список
     fun addItems(list: List<Film>) {
-        //Сначала очишаем(если не реализовать DiffUtils)
+        //Сначала очищаем(если не реализовать DiffUtils)
         items.clear()
         //Добавляем
         items.addAll(list)

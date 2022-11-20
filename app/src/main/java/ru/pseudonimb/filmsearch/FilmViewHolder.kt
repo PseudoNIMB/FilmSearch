@@ -31,6 +31,7 @@ class FilmViewHolder(private val binding: FilmItemBinding)
             .into(binding.poster)
         //Устанавливаем описание
         binding.description.text = film.description
-
+        //Рейтинг
+        ratingDonut.setProgress((film.rating * 10).toInt())
     }
 }

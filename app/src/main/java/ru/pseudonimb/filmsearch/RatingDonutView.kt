@@ -104,6 +104,15 @@ class RatingDonutView @JvmOverloads constructor(context: Context, attributeSet: 
         drawText(canvas)
     }
 
+    fun setProgress(pr: Int) {
+        //Кладем новое значение в наше поле класса
+        progress = pr
+        //Создаем краски с новыми цветами
+        initPaint()
+        //вызываем перерисовку View
+        invalidate()
+    }
+
     private fun drawRating(canvas: Canvas) {
         //Здесь мы можем регулировать размер нашего кольца
         val scale = radius * 0.8f

@@ -1,4 +1,4 @@
-package ru.pseudonimb.filmsearch
+package ru.pseudonimb.filmsearch.domain
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

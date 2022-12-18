@@ -1,9 +1,10 @@
-package ru.pseudonimb.filmsearch
+package ru.pseudonimb.filmsearch.view.rv_viewholders
 
 
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import ru.pseudonimb.filmsearch.databinding.FilmItemBinding
+import ru.pseudonimb.filmsearch.domain.Film
 
 //В конструктор класс передается layout, который мы создали(film_item.xml)
 class FilmViewHolder(private val binding: FilmItemBinding)

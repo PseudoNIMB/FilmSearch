@@ -1,4 +1,4 @@
-package ru.pseudonimb.filmsearch
+package ru.pseudonimb.filmsearch.utils
 
 import android.app.Activity
 import android.view.View

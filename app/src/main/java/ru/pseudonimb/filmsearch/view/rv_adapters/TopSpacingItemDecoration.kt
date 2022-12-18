@@ -1,4 +1,4 @@
-package ru.pseudonimb.filmsearch
+package ru.pseudonimb.filmsearch.view.rv_adapters
 
 import android.content.res.Resources
 import android.graphics.Rect

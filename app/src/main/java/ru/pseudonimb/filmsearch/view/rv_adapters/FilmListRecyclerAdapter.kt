@@ -1,9 +1,11 @@
-package ru.pseudonimb.filmsearch
+package ru.pseudonimb.filmsearch.view.rv_adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import ru.pseudonimb.filmsearch.view.rv_viewholders.FilmViewHolder
 import ru.pseudonimb.filmsearch.databinding.FilmItemBinding
+import ru.pseudonimb.filmsearch.domain.Film
 
 //в параметр передаем слушатель, чтобы мы потом могли обрабатывать нажатия из класса активити
 class FilmListRecyclerAdapter(private val clickListener: OnItemClickListener)

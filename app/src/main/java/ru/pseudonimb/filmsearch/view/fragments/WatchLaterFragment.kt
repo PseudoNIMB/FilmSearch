@@ -1,15 +1,16 @@
-package ru.pseudonimb.filmsearch
+package ru.pseudonimb.filmsearch.view.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import ru.pseudonimb.filmsearch.databinding.FragmentSelectionsBinding
+import ru.pseudonimb.filmsearch.databinding.FragmentWatchLaterBinding
+import ru.pseudonimb.filmsearch.utils.AnimationHelper
 
-class SelectionsFragment : Fragment() {
+class WatchLaterFragment : Fragment() {
 
-    private var _binding: FragmentSelectionsBinding? = null
+    private var _binding: FragmentWatchLaterBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -17,14 +18,15 @@ class SelectionsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentSelectionsBinding.inflate(inflater, container, false)
+        _binding = FragmentWatchLaterBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        AnimationHelper.performFragmentCircularRevealAnimation(binding.selectionsFragmentRoot, requireActivity(), 4)
+
+        AnimationHelper.performFragmentCircularRevealAnimation(binding.watchLaterFragmentRoot, requireActivity(), 3)
     }
 
     override fun onDestroyView() {

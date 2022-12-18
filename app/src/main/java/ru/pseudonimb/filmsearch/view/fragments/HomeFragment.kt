@@ -1,4 +1,4 @@
-package ru.pseudonimb.filmsearch
+package ru.pseudonimb.filmsearch.view.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,13 @@ import android.view.ViewGroup
 import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import ru.pseudonimb.filmsearch.view.rv_adapters.FilmListRecyclerAdapter
+import ru.pseudonimb.filmsearch.R
+import ru.pseudonimb.filmsearch.view.rv_adapters.TopSpacingItemDecoration
 import ru.pseudonimb.filmsearch.databinding.FragmentHomeBinding
+import ru.pseudonimb.filmsearch.domain.Film
+import ru.pseudonimb.filmsearch.utils.AnimationHelper
+import ru.pseudonimb.filmsearch.view.MainActivity
 
 import java.util.*
 

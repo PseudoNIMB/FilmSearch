@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import ru.pseudonimb.filmsearch.view.rv_adapters.FilmListRecyclerAdapter
 import ru.pseudonimb.filmsearch.R
@@ -14,6 +15,7 @@ import ru.pseudonimb.filmsearch.databinding.FragmentHomeBinding
 import ru.pseudonimb.filmsearch.domain.Film
 import ru.pseudonimb.filmsearch.utils.AnimationHelper
 import ru.pseudonimb.filmsearch.view.MainActivity
+import ru.pseudonimb.filmsearch.viewmodel.HomeFragmentViewModel
 
 import java.util.*
 
@@ -30,6 +32,9 @@ class HomeFragment : Fragment() {
         Film("WandaVision", R.drawable.wandavision, "Description", 8.8f),
         )
 
+    private val viewModel by lazy {
+        ViewModelProvider.NewInstanceFactory().create(HomeFragmentViewModel::class.java)
+    }
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 

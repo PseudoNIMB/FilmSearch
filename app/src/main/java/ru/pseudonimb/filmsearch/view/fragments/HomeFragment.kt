@@ -28,7 +28,6 @@ class HomeFragment : Fragment() {
         Film("Raiders", R.drawable.raiders, "Description", 7.2f),
         Film("Top Gun", R.drawable.topgun, "Description", 5.8f),
         Film("WandaVision", R.drawable.wandavision, "Description", 8.8f),
-
         )
 
     private var _binding: FragmentHomeBinding? = null

@@ -1,4 +1,4 @@
-package ru.pseudonimb.filmsearch
+package ru.pseudonimb.filmsearch.view.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,24 +6,35 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import ru.pseudonimb.filmsearch.view.rv_adapters.FilmListRecyclerAdapter
+import ru.pseudonimb.filmsearch.view.rv_adapters.TopSpacingItemDecoration
 import ru.pseudonimb.filmsearch.databinding.FragmentHomeBinding
+import ru.pseudonimb.filmsearch.domain.Film
+import ru.pseudonimb.filmsearch.utils.AnimationHelper
+import ru.pseudonimb.filmsearch.view.MainActivity
+import ru.pseudonimb.filmsearch.viewmodel.HomeFragmentViewModel
 
 import java.util.*
 
 class HomeFragment : Fragment() {
+    //Инициализация HomeFragmentViewModel
+    private val viewModel by lazy {
+        ViewModelProvider.NewInstanceFactory().create(HomeFragmentViewModel::class.java)
+    }
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
-    private val filmsDataBase = listOf(
-        Film("Flash", R.drawable.flash, "Description", 7.7f),
-        Film("Ghost Busters!", R.drawable.ghostbusters, "Description", 6.3f),
-        Film("Back to the Future", R.drawable.backtothefuture, "Description", 5.2f),
-        Film("Jaws", R.drawable.jaws, "Description", 9.2f),
-        Film("Jurassic Park", R.drawable.jurassic, "Description", 8.3f),
-        Film("Raiders", R.drawable.raiders, "Description", 7.2f),
-        Film("Top Gun", R.drawable.topgun, "Description", 5.8f),
-        Film("WandaVision", R.drawable.wandavision, "Description", 8.8f),
-
-        )
+    private var filmsDataBase = listOf<Film>()
+        //Используем backing field
+        set(value) {
+            //Если придет такое же значение то мы выходим из метода
+            if (field == value) return
+            //Если прило другое значение, то кладем его в переменную
+            field = value
+            //Обновляем RV адаптер
+            filmsAdapter.addItems(field)
+        }
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -54,7 +65,10 @@ class HomeFragment : Fragment() {
         //находим наш RV
         initRecycler()
         //Кладем нашу БД в RV
-        filmsAdapter.addItems(filmsDataBase)
+        viewModel.filmsListLiveData.observe(viewLifecycleOwner, Observer<List<Film>> {
+            filmsDataBase = it
+        })
+
     }
 
     private fun initSearchView() {

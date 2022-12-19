@@ -1,9 +1,10 @@
-package ru.pseudonimb.filmsearch
+package ru.pseudonimb.filmsearch.view.customviews
 
 import android.content.Context
 import android.util.AttributeSet
 import android.graphics.*
 import android.view.View
+import ru.pseudonimb.filmsearch.R
 
 class RatingDonutView @JvmOverloads constructor(context: Context, attributeSet: AttributeSet? = null) : View(context, attributeSet) {
     //Овал для рисования сегментов прогресс бара

@@ -1,11 +1,14 @@
 @file:Suppress("DEPRECATION")
 
-package ru.pseudonimb.filmsearch
+package ru.pseudonimb.filmsearch.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import ru.pseudonimb.filmsearch.*
 import ru.pseudonimb.filmsearch.databinding.ActivityMainBinding
+import ru.pseudonimb.filmsearch.domain.Film
+import ru.pseudonimb.filmsearch.view.fragments.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -60,7 +63,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.favorites -> {
                     val tag = "favorites"
                     val fragment = checkFragmentExistence(tag)
-                    changeFragment(fragment?:FavoritesFragment(), tag)
+                    changeFragment(fragment?: FavoritesFragment(), tag)
                     true
                 }
                 R.id.watch_later -> {

@@ -1,8 +1,8 @@
 package ru.pseudonimb.filmsearch.view.customviews
 
 import android.content.Context
-import android.util.AttributeSet
 import android.graphics.*
+import android.util.AttributeSet
 import android.view.View
 import ru.pseudonimb.filmsearch.R
 

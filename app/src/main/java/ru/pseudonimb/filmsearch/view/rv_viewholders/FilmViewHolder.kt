@@ -11,11 +11,6 @@ import ru.pseudonimb.filmsearch.domain.Film
 class FilmViewHolder(private val binding: FilmItemBinding)
     : RecyclerView.ViewHolder(binding.root) {
 
-    //Привязываем view из layout к переменным
-    //private val title = binding.title
-    //private val poster = binding.poster
-    //private val description = binding.description
-
     //В этом методе кладем данные из film в наши view
     fun bind(film: Film) {
         //Устанавливаем заголовок

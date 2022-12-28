@@ -5,7 +5,7 @@ package ru.pseudonimb.filmsearch.view
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import ru.pseudonimb.filmsearch.*
+import ru.pseudonimb.filmsearch.R
 import ru.pseudonimb.filmsearch.databinding.ActivityMainBinding
 import ru.pseudonimb.filmsearch.domain.Film
 import ru.pseudonimb.filmsearch.view.fragments.*

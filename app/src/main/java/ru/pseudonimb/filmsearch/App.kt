@@ -1,14 +1,14 @@
 package ru.pseudonimb.filmsearch
 
 import android.app.Application
-import ru.pseudonimb.filmsearch.data.ApiConstants
-import ru.pseudonimb.filmsearch.data.MainRepository
-import ru.pseudonimb.filmsearch.data.TmdbApi
-import ru.pseudonimb.filmsearch.domain.Interactor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import ru.pseudonimb.filmsearch.data.ApiConstants
+import ru.pseudonimb.filmsearch.data.MainRepository
+import ru.pseudonimb.filmsearch.data.TmdbApi
+import ru.pseudonimb.filmsearch.domain.Interactor
 import java.util.concurrent.TimeUnit
 
 class App : Application() {

@@ -10,7 +10,6 @@ import ru.pseudonimb.filmsearch.domain.Film
 class FilmViewHolder(private val binding: FilmItemBinding)
     : RecyclerView.ViewHolder(binding.root) {
 
-
     //Привязываем view из layout к переменным
     //private val title = binding.title
     //private val poster = binding.poster
@@ -25,7 +24,7 @@ class FilmViewHolder(private val binding: FilmItemBinding)
         //Указываем контейнер, в котором будет "жить" наша картинка
         Glide.with(itemView)
             //Загружаем сам ресурс
-            .load(film.poster)
+            .load(ApiConstants.IMAGES_URL + "w342" + film.poster)
             //Центруем изображение
             .centerCrop()
             //Указываем ImageView, куда будем загружать изображение

@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import ru.pseudonimb.filmsearch.R
-import ru.pseudonimb.filmsearch.data.Entity.ApiConstants
+import ru.pseudonimb.filmsearch.data.ApiConstants
 import ru.pseudonimb.filmsearch.databinding.FragmentDetailsBinding
 import ru.pseudonimb.filmsearch.domain.Film
 

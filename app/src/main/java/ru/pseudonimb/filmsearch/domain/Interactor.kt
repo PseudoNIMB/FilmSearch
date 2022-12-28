@@ -1,7 +1,12 @@
 package ru.pseudonimb.filmsearch.domain
-import ru.pseudonimb.filmsearch.data.Entity.API
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import ru.pseudonimb.filmsearch.data.API
+import ru.pseudonimb.filmsearch.data.Entity.TmdbResultsDto
 import ru.pseudonimb.filmsearch.data.MainRepository
 import ru.pseudonimb.filmsearch.data.TmdbApi
+import ru.pseudonimb.filmsearch.utils.Converter
 import ru.pseudonimb.filmsearch.viewmodel.HomeFragmentViewModel
 
 class Interactor(private val repo: MainRepository, private val retrofitService: TmdbApi) {

@@ -1,4 +1,4 @@
-package ru.pseudonimb.filmsearch.data.Entity
+package ru.pseudonimb.filmsearch.data
 
 object ApiConstants {
     const val BASE_URL = "https://api.themoviedb.org/"

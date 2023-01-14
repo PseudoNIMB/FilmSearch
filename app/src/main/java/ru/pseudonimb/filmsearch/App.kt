@@ -2,6 +2,7 @@ package ru.pseudonimb.filmsearch
 
 import android.app.Application
 import ru.pseudonimb.filmsearch.di.AppComponent
+import ru.pseudonimb.filmsearch.di.DaggerAppComponent
 
 class App : Application() {
     lateinit var dagger: AppComponent

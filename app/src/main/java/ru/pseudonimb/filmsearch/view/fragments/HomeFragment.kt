@@ -94,7 +94,7 @@ class HomeFragment : Fragment() {
                 val result = filmsDataBase.filter {
                     //Чтобы все работало правильно, нужно и запроси и имя фильма приводить к нижнему регистру
                     it.title.lowercase(Locale.getDefault())
-                        .contains(newText.toLowerCase(Locale.getDefault()))
+                        .contains(newText.lowercase(Locale.getDefault()))
                 }
                 //Добавляем в адаптер
                 filmsAdapter.addItems(result)

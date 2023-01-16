@@ -12,14 +12,16 @@ import ru.pseudonimb.filmsearch.data.TmdbApi
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
+var tUnit = 30
+
 @Module
 class RemoteModule {
     @Provides
     @Singleton
     fun provideOkHttpClient(): OkHttpClient = OkHttpClient.Builder()
         //Настраиваем таймауты для медленного интернета
-        .callTimeout(30, TimeUnit.SECONDS)
-        .readTimeout(30, TimeUnit.SECONDS)
+        .callTimeout(tUnit.toLong(), TimeUnit.SECONDS)
+        .readTimeout(tUnit.toLong(), TimeUnit.SECONDS)
         //Добавляем логгер
         .addInterceptor(HttpLoggingInterceptor().apply {
             if (BuildConfig.DEBUG) {

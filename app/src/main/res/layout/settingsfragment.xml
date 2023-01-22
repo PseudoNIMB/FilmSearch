@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:id="@+id/settings_fragment_root"
     android:background="@drawable/background_settings"
-    tools:context=".view.fragments.SettingsFragmentViewModel">
+    tools:context=".view.fragments.SettingsFragment">
 
     <RadioGroup
         android:id="@+id/radio_group"
@@ -53,4 +53,4 @@
             android:textColor="@android:color/white"
             android:text="@string/radio_button_playing"/>
     </RadioGroup>
-</FrameLayout>ayout>
+</FrameLayout>

@@ -10,10 +10,12 @@
         <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/drawable/background_main.xml" value="0.1225" />
         <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/drawable/background_search_view.xml" value="0.1225" />
         <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/drawable/background_selections.xml" value="0.1225" />
+        <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/drawable/background_settings.xml" value="0.1245" />
         <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/drawable/background_watch_later.xml" value="0.1225" />
         <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.1225" />
         <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/drawable/ic_baseline_favorite_border_24.xml" value="0.1225" />
         <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.1225" />
+        <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.1" />
         <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.14" />
         <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/drawable/ic_round_favorite.xml" value="0.1" />
         <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/drawable/ic_round_menu.xml" value="0.1525" />
@@ -27,10 +29,11 @@
         <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/layout/film_item.xml" value="0.22" />
         <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/layout/fragment_details.xml" value="0.22" />
         <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/layout/fragment_favorites.xml" value="0.22" />
-        <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/layout/fragment_selections.xml" value="0.2692502532928065" />
         <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/layout/fragment_watch_later.xml" value="0.2692502532928065" />
         <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/layout/merge_home_screen_content.xml" value="0.18" />
+        <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/layout/settingsfragment.xml" value="0.1" />
         <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/menu/navimenu.xml" value="0.1" />
         <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/menu/toolbar_menu.xml" value="0.22407407407407406" />
         <entry key="..\:/AndroidProj/FilmSearch/app/src/main/res/menu/topmenu.xml" value="0.25" />

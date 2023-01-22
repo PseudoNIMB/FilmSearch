@@ -5,6 +5,7 @@ import ru.pseudonimb.filmsearch.di.modules.DatabaseModule
 import ru.pseudonimb.filmsearch.di.modules.DomainModule
 import ru.pseudonimb.filmsearch.di.modules.RemoteModule
 import ru.pseudonimb.filmsearch.viewmodel.HomeFragmentViewModel
+import ru.pseudonimb.filmsearch.viewmodel.SettingsFragmentViewModel
 import javax.inject.Singleton
 
 @Singleton
@@ -17,6 +18,8 @@ import javax.inject.Singleton
     ]
 )
 interface AppComponent {
-    //метод для того, чтобы появилась внедрять зависимости в HomeFragmentViewModel
+    //метод для того, чтобы появилась возможность внедрять зависимости в HomeFragmentViewModel
     fun inject(homeFragmentViewModel: HomeFragmentViewModel)
+    //метод для того, чтобы появилась возможность внедрять зависимости в SettingsFragmentViewModel
+    fun inject(settingsFragmentViewModel: SettingsFragmentViewModel)
 }

@@ -6,6 +6,7 @@ import retrofit2.Response
 import ru.pseudonimb.filmsearch.data.API
 import ru.pseudonimb.filmsearch.data.Entity.TmdbResultsDto
 import ru.pseudonimb.filmsearch.data.MainRepository
+import ru.pseudonimb.filmsearch.data.PreferenceProvider
 import ru.pseudonimb.filmsearch.data.TmdbApi
 import ru.pseudonimb.filmsearch.utils.Converter
 import ru.pseudonimb.filmsearch.viewmodel.HomeFragmentViewModel
@@ -13,10 +14,10 @@ import ru.pseudonimb.filmsearch.viewmodel.HomeFragmentViewModel
 class Interactor(private val repo: MainRepository, private val retrofitService: TmdbApi, private val preferences: PreferenceProvider) {
     fun getFilmsFromApi(page: Int, callback: HomeFragmentViewModel.ApiCallback) {
         //Метод getDefaultCategoryFromPreferences() будет нам получать при каждом запросе нужный нам список фильмов
-        retrofitService.getFilms(getDefaultCategoryFromPreferences(), API.KEY, "ru-RU", page).enqueue(object : Callback<TmdbResults> {
+        retrofitService.getFilms(getDefaultCategoryFromPreferences(), API.KEY, "ru-RU", page).enqueue(object : Callback<TmdbResultsDto> {
             override fun onResponse(call: Call<TmdbResultsDto>, response: Response<TmdbResultsDto>) {
                 //При успехе мы вызываем метод передаем onSuccess и в этот коллбэк список фильмов
-                callback.onSuccess(Converter.convertApiListToDTOList(response.body()?.tmdbFilms))
+                callback.onSuccess(Converter.convertApiListToDtoList(response.body()?.tmdbFilms))
             }
 
             override fun onFailure(call: Call<TmdbResultsDto>, t: Throwable) {
@@ -30,5 +31,5 @@ class Interactor(private val repo: MainRepository, private val retrofitService: 
         preferences.saveDefaultCategory(category)
     }
     //Метод для получения настроек
-    fun getDefaultCategoryFromPreferences() = preferences.geDefaultCategory()
+    fun getDefaultCategoryFromPreferences() = preferences.getDefaultCategory()
 }

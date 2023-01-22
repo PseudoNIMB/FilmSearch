@@ -20,7 +20,6 @@ class App : Application() {
             .domainModule(DomainModule(this))
             .build()
     }
-    }
 
     companion object {
         lateinit var instance: App

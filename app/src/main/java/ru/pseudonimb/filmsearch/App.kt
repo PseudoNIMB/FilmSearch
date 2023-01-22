@@ -1,7 +1,6 @@
 package ru.pseudonimb.filmsearch
 
 import android.app.Application
-import okhttp3.internal.Internal.instance
 import ru.pseudonimb.filmsearch.di.AppComponent
 import ru.pseudonimb.filmsearch.di.DaggerAppComponent
 import ru.pseudonimb.filmsearch.di.modules.DatabaseModule

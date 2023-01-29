@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import ru.pseudonimb.filmsearch.R
 import ru.pseudonimb.filmsearch.data.ApiConstants
 import ru.pseudonimb.filmsearch.databinding.FragmentDetailsBinding
-import ru.pseudonimb.filmsearch.data.Entity.Film
+import ru.pseudonimb.filmsearch.data.entity.Film
 
 class DetailsFragment : Fragment() {
     private lateinit var film: Film

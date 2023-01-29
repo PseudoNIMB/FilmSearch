@@ -1,4 +1,4 @@
-package ru.pseudonimb.filmsearch.data.Entity
+package ru.pseudonimb.filmsearch.data.entity
 
 import com.google.gson.annotations.SerializedName
 

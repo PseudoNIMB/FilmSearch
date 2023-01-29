@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import ru.pseudonimb.filmsearch.R
 import ru.pseudonimb.filmsearch.databinding.ActivityMainBinding
-import ru.pseudonimb.filmsearch.data.Entity.Film
+import ru.pseudonimb.filmsearch.data.entity.Film
 import ru.pseudonimb.filmsearch.view.fragments.*
 
 class MainActivity : AppCompatActivity() {

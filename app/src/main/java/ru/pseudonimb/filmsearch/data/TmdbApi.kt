@@ -4,7 +4,7 @@ import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
-import ru.pseudonimb.filmsearch.data.Entity.TmdbResultsDto
+import ru.pseudonimb.filmsearch.data.entity.TmdbResultsDto
 
 
 interface TmdbApi {

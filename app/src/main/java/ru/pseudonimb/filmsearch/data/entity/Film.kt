@@ -1,4 +1,4 @@
-package ru.pseudonimb.filmsearch.data.Entity
+package ru.pseudonimb.filmsearch.data.entity
 
 import android.os.Parcelable
 import androidx.room.ColumnInfo

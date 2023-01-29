@@ -1,10 +1,10 @@
-package ru.pseudonimb.filmsearch.data.DAO
+package ru.pseudonimb.filmsearch.data.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import ru.pseudonimb.filmsearch.data.Entity.Film
+import ru.pseudonimb.filmsearch.data.entity.Film
 
 @Dao
 interface FilmDao {

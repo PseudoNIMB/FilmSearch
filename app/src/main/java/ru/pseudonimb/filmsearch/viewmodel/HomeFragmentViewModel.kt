@@ -1,5 +1,6 @@
 package ru.pseudonimb.filmsearch.viewmodel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import ru.pseudonimb.filmsearch.App
@@ -9,27 +10,26 @@ import java.util.concurrent.Executors
 import javax.inject.Inject
 
 class HomeFragmentViewModel : ViewModel() {
-    val filmsListLiveData: MutableLiveData<List<Film>> = MutableLiveData()
 
     //Инициализируем интерактор
     @Inject
     lateinit var interactor: Interactor
+    val filmsListLiveData: LiveData<List<Film>>
 
     init {
         App.instance.dagger.inject(this)
+        filmsListLiveData = interactor.getFilmsFromDB()
         getFilms()
     }
 
     fun getFilms() {
         interactor.getFilmsFromApi(1, object : ApiCallback {
             override fun onSuccess(films: List<Film>) {
-                filmsListLiveData.postValue(films)
+
             }
 
             override fun onFailure() {
-                Executors.newSingleThreadExecutor().execute {
-                    filmsListLiveData.postValue(interactor.getFilmsFromDB())
-                }
+
             }
         })
     }

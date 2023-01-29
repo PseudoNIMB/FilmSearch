@@ -2,7 +2,7 @@ package ru.pseudonimb.filmsearch.data
 
 import android.content.ContentValues
 import android.database.Cursor
-import ru.pseudonimb.filmsearch.domain.Film
+import ru.pseudonimb.filmsearch.data.Entity.Film
 
 class MainRepository(databaseHelper: DatabaseHelper) {
     //Инициализируем объект для взаимодействия с БД

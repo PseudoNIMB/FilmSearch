@@ -3,7 +3,7 @@ package ru.pseudonimb.filmsearch.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import ru.pseudonimb.filmsearch.App
-import ru.pseudonimb.filmsearch.domain.Film
+import ru.pseudonimb.filmsearch.data.Entity.Film
 import ru.pseudonimb.filmsearch.domain.Interactor
 import javax.inject.Inject
 

@@ -15,6 +15,7 @@ class HomeFragmentViewModel : ViewModel() {
     @Inject
     lateinit var interactor: Interactor
     val filmsListLiveData: LiveData<List<Film>>
+    val showProgressBar: MutableLiveData<Boolean> = MutableLiveData()
 
     init {
         App.instance.dagger.inject(this)
@@ -23,13 +24,14 @@ class HomeFragmentViewModel : ViewModel() {
     }
 
     fun getFilms() {
+        showProgressBar.postValue(true)
         interactor.getFilmsFromApi(1, object : ApiCallback {
-            override fun onSuccess(films: List<Film>) {
-
+            override fun onSuccess() {
+                showProgressBar.postValue(false)
             }
 
             override fun onFailure() {
-
+                showProgressBar.postValue(false)
             }
         })
     }

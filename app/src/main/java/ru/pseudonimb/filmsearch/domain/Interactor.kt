@@ -4,7 +4,8 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import ru.pseudonimb.filmsearch.data.API
-import ru.pseudonimb.filmsearch.data.Entity.TmdbResultsDto
+import ru.pseudonimb.filmsearch.data.entity.Film
+import ru.pseudonimb.filmsearch.data.entity.TmdbResultsDto
 import ru.pseudonimb.filmsearch.data.MainRepository
 import ru.pseudonimb.filmsearch.data.PreferenceProvider
 import ru.pseudonimb.filmsearch.data.TmdbApi
@@ -20,7 +21,7 @@ class Interactor(private val repo: MainRepository, private val retrofitService: 
                 val list = Converter.convertApiListToDtoList(response.body()?.tmdbFilms)
                 //Кладем фильмы в бд
                 list.forEach {
-                    repo.putToDb(film = it)
+                    repo.putToDb(list)
                 }
                 callback.onSuccess(list)
             }

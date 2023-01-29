@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import ru.pseudonimb.filmsearch.databinding.FragmentFavoritesBinding
-import ru.pseudonimb.filmsearch.domain.Film
+import ru.pseudonimb.filmsearch.data.entity.Film
 import ru.pseudonimb.filmsearch.utils.AnimationHelper
 import ru.pseudonimb.filmsearch.view.MainActivity
 import ru.pseudonimb.filmsearch.view.rv_adapters.FilmListRecyclerAdapter

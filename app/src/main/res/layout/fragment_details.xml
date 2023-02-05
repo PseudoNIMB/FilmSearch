@@ -10,14 +10,23 @@
         android:id="@+id/details_fab_download_wp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/doubleEight"
         app:borderWidth="0dp"
-        android:translationX="72dp"
+        android:translationX="@dimen/seventyTwo"
         android:backgroundTint="@color/colorPrimaryDark"
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="left|bottom"
         app:srcCompat="@drawable/ic_baseline_cloud_download_24"
         app:tint="@android:color/white"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:visibility="invisible"
+        android:layout_width="@dimen/fifty"
+        android:layout_height="@dimen/fifty"
+        android:translationZ="@dimen/ten"
+        app:layout_anchor="@id/details_fab_download_wp"
+        app:layout_anchorGravity="center"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/details_favorites"

@@ -30,20 +30,16 @@ import ru.pseudonimb.filmsearch.viewmodel.DetailsFragmentViewModel
 
 class DetailsFragment : Fragment() {
     private lateinit var film: Film
-    private var _binding: FragmentDetailsBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentDetailsBinding
     private val viewModel: DetailsFragmentViewModel by viewModels()
-
     private val scope = CoroutineScope(Dispatchers.IO)
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentDetailsBinding.inflate(inflater,container,false)
-        val view = binding.root
-        return view
+    ): View {
+        binding = FragmentDetailsBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

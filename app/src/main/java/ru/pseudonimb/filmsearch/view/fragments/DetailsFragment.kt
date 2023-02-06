@@ -16,25 +16,25 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-
-import ru.pseudonimb.filmsearch.data.entity.Film
-import ru.pseudonimb.filmsearch.R
-import ru.pseudonimb.filmsearch.data.ApiConstants
-import ru.pseudonimb.filmsearch.databinding.FragmentDetailsBinding
-
+import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.*
+import ru.pseudonimb.filmsearch.R
+import ru.pseudonimb.filmsearch.data.ApiConstants
+import ru.pseudonimb.filmsearch.data.entity.Film
+import ru.pseudonimb.filmsearch.databinding.FragmentDetailsBinding
+import ru.pseudonimb.filmsearch.viewmodel.DetailsFragmentViewModel
+
+
 
 class DetailsFragment : Fragment() {
     private lateinit var film: Film
-
     private var _binding: FragmentDetailsBinding? = null
     private val binding get() = _binding!!
+    private val viewModel: DetailsFragmentViewModel by viewModels()
 
     private val scope = CoroutineScope(Dispatchers.IO)
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -210,10 +210,5 @@ class DetailsFragment : Fragment() {
 
     private fun String.handleSingleQuote(): String {
         return this.replace("'", "")
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

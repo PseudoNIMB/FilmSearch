@@ -60,7 +60,11 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        AnimationHelper.performFragmentCircularRevealAnimation(binding.homeFragmentRoot, requireActivity(), 1)
+        AnimationHelper.performFragmentCircularRevealAnimation(
+            binding.homeFragmentRoot,
+            requireActivity(),
+            1
+        )
 
         initSearchView()
 
@@ -77,24 +81,30 @@ class HomeFragment : Fragment() {
                 }
             }
         }
-
-        override fun onStop() {
-            super.onStop()
-            scope.cancel()
-        }
-
-        fun initPullToRefresh() {
-            //Вешаем слушатель, чтобы вызвался pull to refresh
-            binding.pullToRefresh.setOnRefreshListener {
-                //Чистим адаптер(items нужно будет сделать паблик или создать для этого публичный метод)
-                filmsAdapter.items.clear()
-                //Делаем новый запрос фильмов на сервер
-                viewModel.getFilms()
-                //Убираем крутящееся колечко
-                binding.pullToRefresh.isRefreshing = false
+        scope.launch {
+            for (element in viewModel.showProgressBar) {
+                launch(Dispatchers.Main) {
+                    binding.progressBar.isVisible = element
+                }
             }
         }
+    }
 
+    override fun onStop() {
+        super.onStop()
+        scope.cancel()
+    }
+
+    private fun initPullToRefresh() {
+        //Вешаем слушатель, чтобы вызвался pull to refresh
+        binding.pullToRefresh.setOnRefreshListener {
+            //Чистим адаптер(items нужно будет сделать паблик или создать для этого публичный метод)
+            filmsAdapter.items.clear()
+            //Делаем новый запрос фильмов на сервер
+            viewModel.getFilms()
+            //Убираем крутящееся колечко
+            binding.pullToRefresh.isRefreshing = false
+        }
     }
 
     private fun initSearchView() {

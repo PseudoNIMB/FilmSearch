@@ -1,12 +1,12 @@
 package ru.pseudonimb.filmsearch.viewmodel
 
-import androidx.lifecycle.LiveData
+
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import kotlinx.coroutines.flow.Flow
 import ru.pseudonimb.filmsearch.App
 import ru.pseudonimb.filmsearch.data.entity.Film
 import ru.pseudonimb.filmsearch.domain.Interactor
-import java.util.concurrent.Executors
 import javax.inject.Inject
 
 class HomeFragmentViewModel : ViewModel() {
@@ -14,12 +14,12 @@ class HomeFragmentViewModel : ViewModel() {
     //Инициализируем интерактор
     @Inject
     lateinit var interactor: Interactor
-    val filmsListLiveData: LiveData<List<Film>>
+    val filmsListData: Flow<List<Film>>
     val showProgressBar: MutableLiveData<Boolean> = MutableLiveData()
 
     init {
         App.instance.dagger.inject(this)
-        filmsListLiveData = interactor.getFilmsFromDB()
+        filmsListData = interactor.getFilmsFromDB()
         getFilms()
     }
 

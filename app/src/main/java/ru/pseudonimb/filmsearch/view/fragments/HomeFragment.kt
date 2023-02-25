@@ -83,11 +83,6 @@ class HomeFragment : Fragment() {
             scope.cancel()
         }
 
-        viewModel.showProgressBar.observe(viewLifecycleOwner, Observer<Boolean> {
-            binding.progressBar.isVisible = it
-        })
-
-
         fun initPullToRefresh() {
             //Вешаем слушатель, чтобы вызвался pull to refresh
             binding.pullToRefresh.setOnRefreshListener {

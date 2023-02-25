@@ -1,6 +1,6 @@
 package ru.pseudonimb.filmsearch.domain
 
-import androidx.lifecycle.LiveData
+import kotlinx.coroutines.flow.Flow
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -40,5 +40,5 @@ class Interactor(private val repo: MainRepository, private val retrofitService: 
     //Метод для получения настроек
     fun getDefaultCategoryFromPreferences() = preferences.getDefaultCategory()
 
-    fun getFilmsFromDB(): LiveData<List<Film>> = repo.getAllFromDB()
+    fun getFilmsFromDB(): Flow<List<Film>> = repo.getAllFromDB()
 }

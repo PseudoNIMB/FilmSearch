@@ -10,6 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.*
 import ru.pseudonimb.filmsearch.databinding.FragmentHomeBinding
 import ru.pseudonimb.filmsearch.data.entity.Film
@@ -73,12 +75,13 @@ class HomeFragment : Fragment() {
         //Кладем нашу БД в RV
         scope = CoroutineScope(Dispatchers.IO).also { scope ->
             scope.launch {
-                viewModel.filmsListData.collect {
-                    withContext(Dispatchers.Main) {
-                        filmsAdapter.addItems(it)
-                        filmsDataBase = it
+                viewModel.filmsListData
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe { list ->
+                        filmsAdapter.addItems(list)
+                        filmsDataBase = list
                     }
-                }
             }
         }
         scope.launch {

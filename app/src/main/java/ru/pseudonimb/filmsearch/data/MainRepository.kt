@@ -1,5 +1,6 @@
 package ru.pseudonimb.filmsearch.data
 
+import io.reactivex.rxjava3.core.Observable
 import kotlinx.coroutines.flow.Flow
 import ru.pseudonimb.filmsearch.data.dao.FilmDao
 import ru.pseudonimb.filmsearch.data.entity.Film
@@ -14,5 +15,5 @@ class MainRepository(private val filmDao: FilmDao) {
         }
     }
 
-    fun getAllFromDB(): Flow<List<Film>> = filmDao.getCachedFilms()
+    fun getAllFromDB(): Observable<List<Film>> = filmDao.getCachedFilms()
 }

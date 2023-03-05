@@ -3,6 +3,7 @@ package ru.pseudonimb.filmsearch.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import io.reactivex.rxjava3.core.Observable
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
 import ru.pseudonimb.filmsearch.App
@@ -15,7 +16,7 @@ class HomeFragmentViewModel : ViewModel() {
     //Инициализируем интерактор
     @Inject
     lateinit var interactor: Interactor
-    val filmsListData: Flow<List<Film>>
+    val filmsListData: Observable<List<Film>>
     val showProgressBar: Channel<Boolean>
 
     init {

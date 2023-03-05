@@ -27,7 +27,9 @@ class HomeFragment : Fragment() {
     private val viewModel by lazy {
         ViewModelProvider.NewInstanceFactory().create(HomeFragmentViewModel::class.java)
     }
+
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
+    private lateinit var binding: FragmentHomeBinding
     private var filmsDataBase = listOf<Film>()
         //Используем backing field
         set(value) {
@@ -38,9 +40,6 @@ class HomeFragment : Fragment() {
             //Обновляем RV адаптер
             filmsAdapter.addItems(field)
         }
-
-    private var _binding: FragmentHomeBinding? = null
-    private val binding get() = _binding!!
 
     private val autoDisposable = AutoDisposable()
 
@@ -55,8 +54,7 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val view = binding.root
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
         return view
     }
 
@@ -89,10 +87,7 @@ class HomeFragment : Fragment() {
             .subscribe {
                 binding.progressBar.isVisible = it
             }
-    }
-
-    override fun onStop() {
-        super.onStop()
+            .addTo(autoDisposable)
     }
 
     private fun initPullToRefresh() {
@@ -156,10 +151,5 @@ class HomeFragment : Fragment() {
             val decorator = TopSpacingItemDecoration(8)
             addItemDecoration(decorator)
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

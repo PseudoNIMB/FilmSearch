@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.coroutines.*
 import ru.pseudonimb.filmsearch.databinding.FragmentHomeBinding
 import ru.pseudonimb.filmsearch.data.entity.Film
 import ru.pseudonimb.filmsearch.utils.AnimationHelper
@@ -25,6 +26,7 @@ class HomeFragment : Fragment() {
         ViewModelProvider.NewInstanceFactory().create(HomeFragmentViewModel::class.java)
     }
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
+    private lateinit var scope: CoroutineScope
     private var filmsDataBase = listOf<Film>()
         //Используем backing field
         set(value) {
@@ -58,34 +60,51 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        AnimationHelper.performFragmentCircularRevealAnimation(binding.homeFragmentRoot, requireActivity(), 1)
+        AnimationHelper.performFragmentCircularRevealAnimation(
+            binding.homeFragmentRoot,
+            requireActivity(),
+            1
+        )
 
         initSearchView()
 
         //находим наш RV
         initRecycler()
         //Кладем нашу БД в RV
-        viewModel.filmsListLiveData.observe(viewLifecycleOwner, Observer<List<Film>> {
-            filmsDataBase = it
-            filmsAdapter.addItems(it)
-        })
-        viewModel.showProgressBar.observe(viewLifecycleOwner, Observer<Boolean> {
-            binding.progressBar.isVisible = it
-        })
-
-
-        fun initPullToRefresh() {
-            //Вешаем слушатель, чтобы вызвался pull to refresh
-            binding.pullToRefresh.setOnRefreshListener {
-                //Чистим адаптер(items нужно будет сделать паблик или создать для этого публичный метод)
-                filmsAdapter.items.clear()
-                //Делаем новый запрос фильмов на сервер
-                viewModel.getFilms()
-                //Убираем крутящееся колечко
-                binding.pullToRefresh.isRefreshing = false
+        scope = CoroutineScope(Dispatchers.IO).also { scope ->
+            scope.launch {
+                viewModel.filmsListData.collect {
+                    withContext(Dispatchers.Main) {
+                        filmsAdapter.addItems(it)
+                        filmsDataBase = it
+                    }
+                }
             }
         }
+        scope.launch {
+            for (element in viewModel.showProgressBar) {
+                launch(Dispatchers.Main) {
+                    binding.progressBar.isVisible = element
+                }
+            }
+        }
+    }
 
+    override fun onStop() {
+        super.onStop()
+        scope.cancel()
+    }
+
+    private fun initPullToRefresh() {
+        //Вешаем слушатель, чтобы вызвался pull to refresh
+        binding.pullToRefresh.setOnRefreshListener {
+            //Чистим адаптер(items нужно будет сделать паблик или создать для этого публичный метод)
+            filmsAdapter.items.clear()
+            //Делаем новый запрос фильмов на сервер
+            viewModel.getFilms()
+            //Убираем крутящееся колечко
+            binding.pullToRefresh.isRefreshing = false
+        }
     }
 
     private fun initSearchView() {

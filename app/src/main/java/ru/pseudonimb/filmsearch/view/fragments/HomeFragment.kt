@@ -28,7 +28,6 @@ class HomeFragment : Fragment() {
         ViewModelProvider.NewInstanceFactory().create(HomeFragmentViewModel::class.java)
     }
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
-    private lateinit var scope: CoroutineScope
     private var filmsDataBase = listOf<Film>()
         //Используем backing field
         set(value) {
@@ -73,29 +72,23 @@ class HomeFragment : Fragment() {
         //находим наш RV
         initRecycler()
         //Кладем нашу БД в RV
-        scope = CoroutineScope(Dispatchers.IO).also { scope ->
-            scope.launch {
-                viewModel.filmsListData
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe { list ->
-                        filmsAdapter.addItems(list)
-                        filmsDataBase = list
-                    }
+        viewModel.filmsListData
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe { list ->
+                filmsAdapter.addItems(list)
+                filmsDataBase = list
             }
-        }
-        scope.launch {
-            for (element in viewModel.showProgressBar) {
-                launch(Dispatchers.Main) {
-                    binding.progressBar.isVisible = element
-                }
+        viewModel.showProgressBar
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe {
+                binding.progressBar.isVisible = it
             }
-        }
     }
 
     override fun onStop() {
         super.onStop()
-        scope.cancel()
     }
 
     private fun initPullToRefresh() {

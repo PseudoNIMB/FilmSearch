@@ -1,7 +1,6 @@
 package ru.pseudonimb.filmsearch.data
 
 import io.reactivex.rxjava3.core.Observable
-import kotlinx.coroutines.flow.Flow
 import ru.pseudonimb.filmsearch.data.dao.FilmDao
 import ru.pseudonimb.filmsearch.data.entity.Film
 import java.util.concurrent.Executors

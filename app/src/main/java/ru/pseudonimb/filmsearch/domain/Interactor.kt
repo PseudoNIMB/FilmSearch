@@ -4,20 +4,15 @@ import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import io.reactivex.rxjava3.subjects.BehaviorSubject
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import ru.pseudonimb.filmsearch.data.API
-import ru.pseudonimb.filmsearch.data.entity.Film
-import ru.pseudonimb.filmsearch.data.entity.TmdbResultsDto
 import ru.pseudonimb.filmsearch.data.MainRepository
 import ru.pseudonimb.filmsearch.data.PreferenceProvider
 import ru.pseudonimb.filmsearch.data.TmdbApi
+import ru.pseudonimb.filmsearch.data.entity.Film
+import ru.pseudonimb.filmsearch.data.entity.TmdbResultsDto
 import ru.pseudonimb.filmsearch.utils.Converter
 
 class Interactor(private val repo: MainRepository, private val retrofitService: TmdbApi, private val preferences: PreferenceProvider) {

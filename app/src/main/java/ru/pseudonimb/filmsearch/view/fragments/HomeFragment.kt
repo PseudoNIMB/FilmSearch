@@ -7,14 +7,12 @@ import android.view.ViewGroup
 import android.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.coroutines.*
-import ru.pseudonimb.filmsearch.databinding.FragmentHomeBinding
 import ru.pseudonimb.filmsearch.data.entity.Film
+import ru.pseudonimb.filmsearch.databinding.FragmentHomeBinding
 import ru.pseudonimb.filmsearch.utils.AnimationHelper
 import ru.pseudonimb.filmsearch.view.MainActivity
 import ru.pseudonimb.filmsearch.view.rv_adapters.FilmListRecyclerAdapter

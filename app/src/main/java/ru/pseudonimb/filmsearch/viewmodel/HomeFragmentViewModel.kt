@@ -1,12 +1,9 @@
 package ru.pseudonimb.filmsearch.viewmodel
 
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.subjects.BehaviorSubject
-import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.Flow
 import ru.pseudonimb.filmsearch.App
 import ru.pseudonimb.filmsearch.data.entity.Film
 import ru.pseudonimb.filmsearch.domain.Interactor

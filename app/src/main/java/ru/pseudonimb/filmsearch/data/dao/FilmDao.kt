@@ -6,7 +6,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import io.reactivex.rxjava3.core.Observable
-import kotlinx.coroutines.flow.Flow
 import ru.pseudonimb.filmsearch.data.entity.Film
 
 @Dao

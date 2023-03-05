@@ -66,7 +66,7 @@ class HomeFragment : Fragment() {
         )
 
         initSearchView()
-
+        initPullToRefresh()
         //находим наш RV
         initRecycler()
         //Кладем нашу БД в RV

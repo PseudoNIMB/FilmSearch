@@ -14,6 +14,8 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import ru.pseudonimb.filmsearch.data.entity.Film
 import ru.pseudonimb.filmsearch.databinding.FragmentHomeBinding
 import ru.pseudonimb.filmsearch.utils.AnimationHelper
+import ru.pseudonimb.filmsearch.utils.AutoDisposable
+import ru.pseudonimb.filmsearch.utils.addTo
 import ru.pseudonimb.filmsearch.view.MainActivity
 import ru.pseudonimb.filmsearch.view.rv_adapters.FilmListRecyclerAdapter
 import ru.pseudonimb.filmsearch.view.rv_adapters.TopSpacingItemDecoration
@@ -40,8 +42,11 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
+    private val autoDisposable = AutoDisposable()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        autoDisposable.bindTo(lifecycle)
         retainInstance = true
     }
 
@@ -77,6 +82,7 @@ class HomeFragment : Fragment() {
                 filmsAdapter.addItems(list)
                 filmsDataBase = list
             }
+            .addTo(autoDisposable)
         viewModel.showProgressBar
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

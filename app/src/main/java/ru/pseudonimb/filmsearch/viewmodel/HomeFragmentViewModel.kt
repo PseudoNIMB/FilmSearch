@@ -30,4 +30,5 @@ class HomeFragmentViewModel : ViewModel() {
 
     fun getSearchResult(search: String) = interactor.getSearchResultFromApi(search)
 
+
 }

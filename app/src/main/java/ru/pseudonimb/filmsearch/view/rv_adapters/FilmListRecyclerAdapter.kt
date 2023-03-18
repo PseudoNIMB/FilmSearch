@@ -3,8 +3,8 @@ package ru.pseudonimb.filmsearch.view.rv_adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import ru.pseudonimb.filmsearch.databinding.FilmItemBinding
 import ru.pseudonimb.filmsearch.data.entity.Film
+import ru.pseudonimb.filmsearch.databinding.FilmItemBinding
 import ru.pseudonimb.filmsearch.view.rv_viewholders.FilmViewHolder
 
 //в параметр передаем слушатель, чтобы мы потом могли обрабатывать нажатия из класса активити

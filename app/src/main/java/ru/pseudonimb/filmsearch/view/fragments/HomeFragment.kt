@@ -7,13 +7,15 @@ import android.view.ViewGroup
 import android.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.coroutines.*
-import ru.pseudonimb.filmsearch.databinding.FragmentHomeBinding
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.schedulers.Schedulers
 import ru.pseudonimb.filmsearch.data.entity.Film
+import ru.pseudonimb.filmsearch.databinding.FragmentHomeBinding
 import ru.pseudonimb.filmsearch.utils.AnimationHelper
+import ru.pseudonimb.filmsearch.utils.AutoDisposable
+import ru.pseudonimb.filmsearch.utils.addTo
 import ru.pseudonimb.filmsearch.view.MainActivity
 import ru.pseudonimb.filmsearch.view.rv_adapters.FilmListRecyclerAdapter
 import ru.pseudonimb.filmsearch.view.rv_adapters.TopSpacingItemDecoration
@@ -25,8 +27,10 @@ class HomeFragment : Fragment() {
     private val viewModel by lazy {
         ViewModelProvider.NewInstanceFactory().create(HomeFragmentViewModel::class.java)
     }
+    private val autoDisposable = AutoDisposable()
+
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
-    private lateinit var scope: CoroutineScope
+    private lateinit var binding: FragmentHomeBinding
     private var filmsDataBase = listOf<Film>()
         //Используем backing field
         set(value) {
@@ -38,11 +42,9 @@ class HomeFragment : Fragment() {
             filmsAdapter.addItems(field)
         }
 
-    private var _binding: FragmentHomeBinding? = null
-    private val binding get() = _binding!!
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        autoDisposable.bindTo(lifecycle)
         retainInstance = true
     }
 
@@ -51,9 +53,8 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val view = binding.root
-        return view
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
 
@@ -67,32 +68,25 @@ class HomeFragment : Fragment() {
         )
 
         initSearchView()
-
+        initPullToRefresh()
         //находим наш RV
         initRecycler()
         //Кладем нашу БД в RV
-        scope = CoroutineScope(Dispatchers.IO).also { scope ->
-            scope.launch {
-                viewModel.filmsListData.collect {
-                    withContext(Dispatchers.Main) {
-                        filmsAdapter.addItems(it)
-                        filmsDataBase = it
-                    }
-                }
+        viewModel.filmsListData
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe { list ->
+                filmsAdapter.addItems(list)
+                filmsDataBase = list
             }
-        }
-        scope.launch {
-            for (element in viewModel.showProgressBar) {
-                launch(Dispatchers.Main) {
-                    binding.progressBar.isVisible = element
-                }
+            .addTo(autoDisposable)
+        viewModel.showProgressBar
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe {
+                binding.progressBar.isVisible = it
             }
-        }
-    }
-
-    override fun onStop() {
-        super.onStop()
-        scope.cancel()
+            .addTo(autoDisposable)
     }
 
     private fun initPullToRefresh() {
@@ -156,10 +150,5 @@ class HomeFragment : Fragment() {
             val decorator = TopSpacingItemDecoration(8)
             addItemDecoration(decorator)
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

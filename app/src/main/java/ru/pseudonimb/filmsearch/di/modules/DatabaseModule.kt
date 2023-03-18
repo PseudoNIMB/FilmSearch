@@ -2,9 +2,9 @@ package ru.pseudonimb.filmsearch.di.modules
 
 import android.content.Context
 import androidx.room.Room
-import ru.pseudonimb.filmsearch.data.MainRepository
 import dagger.Module
 import dagger.Provides
+import ru.pseudonimb.filmsearch.data.MainRepository
 import ru.pseudonimb.filmsearch.data.dao.FilmDao
 import ru.pseudonimb.filmsearch.data.db.AppDatabase
 import javax.inject.Singleton

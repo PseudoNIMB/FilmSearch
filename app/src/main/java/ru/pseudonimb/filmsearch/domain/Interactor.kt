@@ -9,7 +9,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import ru.pseudonimb.filmsearch.data.API
 import ru.pseudonimb.filmsearch.data.MainRepository
-import ru.pseudonimb.filmsearch.data.PreferenceProvider
+import ru.pseudonimb.filmsearch.data.preferences.PreferenceProvider
 import ru.pseudonimb.filmsearch.data.TmdbApi
 import ru.pseudonimb.filmsearch.data.entity.Film
 import ru.pseudonimb.filmsearch.data.entity.TmdbResultsDto

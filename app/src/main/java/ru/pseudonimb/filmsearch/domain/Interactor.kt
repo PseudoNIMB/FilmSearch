@@ -9,10 +9,10 @@ import retrofit2.Callback
 import retrofit2.Response
 import ru.pseudonimb.filmsearch.data.API
 import ru.pseudonimb.filmsearch.data.MainRepository
-import ru.pseudonimb.filmsearch.data.preferences.PreferenceProvider
 import ru.pseudonimb.filmsearch.data.TmdbApi
 import ru.pseudonimb.filmsearch.data.entity.Film
 import ru.pseudonimb.filmsearch.data.entity.TmdbResultsDto
+import ru.pseudonimb.filmsearch.data.preferences.PreferenceProvider
 import ru.pseudonimb.filmsearch.utils.Converter
 
 class Interactor(private val repo: MainRepository, private val retrofitService: TmdbApi, private val preferences: PreferenceProvider) {

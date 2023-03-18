@@ -3,7 +3,6 @@ package ru.pseudonimb.filmsearch.data
 import io.reactivex.rxjava3.core.Observable
 import ru.pseudonimb.filmsearch.data.dao.FilmDao
 import ru.pseudonimb.filmsearch.data.entity.Film
-import java.util.concurrent.Executors
 
 class MainRepository(private val filmDao: FilmDao) {
 

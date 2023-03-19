@@ -3,9 +3,9 @@ package ru.pseudonimb.filmsearch.di
 import dagger.Component
 import ru.pseudonimb.filmsearch.di.modules.DatabaseModule
 import ru.pseudonimb.filmsearch.di.modules.DomainModule
-import ru.pseudonimb.filmsearch.di.modules.RemoteModule
 import ru.pseudonimb.filmsearch.viewmodel.HomeFragmentViewModel
 import ru.pseudonimb.filmsearch.viewmodel.SettingsFragmentViewModel
+import ru.pseudonimb.remote_module.RemoteModule
 import javax.inject.Singleton
 
 @Singleton

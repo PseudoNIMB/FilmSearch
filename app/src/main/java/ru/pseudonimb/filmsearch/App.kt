@@ -5,7 +5,8 @@ import ru.pseudonimb.filmsearch.di.AppComponent
 import ru.pseudonimb.filmsearch.di.DaggerAppComponent
 import ru.pseudonimb.filmsearch.di.modules.DatabaseModule
 import ru.pseudonimb.filmsearch.di.modules.DomainModule
-import ru.pseudonimb.filmsearch.di.modules.RemoteModule
+import ru.pseudonimb.remote_module.RemoteModule
+
 
 class App : Application() {
     lateinit var dagger: AppComponent

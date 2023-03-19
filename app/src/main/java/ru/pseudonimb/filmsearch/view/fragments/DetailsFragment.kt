@@ -24,7 +24,7 @@ import ru.pseudonimb.filmsearch.R
 import ru.pseudonimb.filmsearch.data.entity.Film
 import ru.pseudonimb.filmsearch.databinding.FragmentDetailsBinding
 import ru.pseudonimb.filmsearch.viewmodel.DetailsFragmentViewModel
-
+import ru.pseudonimb.remote_module.entity.ApiConstants
 
 
 class DetailsFragment : Fragment() {

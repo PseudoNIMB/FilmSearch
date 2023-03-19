@@ -6,6 +6,7 @@ import dagger.Provides
 import ru.pseudonimb.filmsearch.data.MainRepository
 import ru.pseudonimb.filmsearch.data.preferences.PreferenceProvider
 import ru.pseudonimb.filmsearch.domain.Interactor
+import ru.pseudonimb.remote_module.TmdbApi
 import javax.inject.Singleton
 
 @Module

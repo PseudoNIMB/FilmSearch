@@ -3,7 +3,6 @@ package ru.pseudonimb.filmsearch.view.rv_viewholders
 
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import ru.pseudonimb.filmsearch.data.ApiConstants
 import ru.pseudonimb.filmsearch.data.entity.Film
 import ru.pseudonimb.filmsearch.databinding.FilmItemBinding
 

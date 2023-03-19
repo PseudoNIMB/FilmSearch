@@ -1,4 +1,4 @@
-package ru.pseudonimb.filmsearch.di.modules
+package ru.pseudonimb.remote_module
 
 import dagger.Module
 import dagger.Provides

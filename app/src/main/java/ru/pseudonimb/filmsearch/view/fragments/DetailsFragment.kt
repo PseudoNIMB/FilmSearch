@@ -21,7 +21,6 @@ import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.*
 import ru.pseudonimb.filmsearch.R
-import ru.pseudonimb.filmsearch.data.ApiConstants
 import ru.pseudonimb.filmsearch.data.entity.Film
 import ru.pseudonimb.filmsearch.databinding.FragmentDetailsBinding
 import ru.pseudonimb.filmsearch.viewmodel.DetailsFragmentViewModel

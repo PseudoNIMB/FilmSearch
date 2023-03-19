@@ -4,8 +4,8 @@ import android.content.Context
 import dagger.Module
 import dagger.Provides
 import ru.pseudonimb.filmsearch.data.MainRepository
-import ru.pseudonimb.filmsearch.data.PreferenceProvider
 import ru.pseudonimb.filmsearch.data.TmdbApi
+import ru.pseudonimb.filmsearch.data.preferences.PreferenceProvider
 import ru.pseudonimb.filmsearch.domain.Interactor
 import javax.inject.Singleton
 

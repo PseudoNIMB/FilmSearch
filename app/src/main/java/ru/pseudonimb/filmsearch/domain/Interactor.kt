@@ -9,10 +9,10 @@ import retrofit2.Callback
 import retrofit2.Response
 import ru.pseudonimb.filmsearch.data.API
 import ru.pseudonimb.filmsearch.data.MainRepository
-import ru.pseudonimb.filmsearch.data.PreferenceProvider
 import ru.pseudonimb.filmsearch.data.TmdbApi
 import ru.pseudonimb.filmsearch.data.entity.Film
 import ru.pseudonimb.filmsearch.data.entity.TmdbResultsDto
+import ru.pseudonimb.filmsearch.data.preferences.PreferenceProvider
 import ru.pseudonimb.filmsearch.utils.Converter
 
 class Interactor(private val repo: MainRepository, private val retrofitService: TmdbApi, private val preferences: PreferenceProvider) {
@@ -41,6 +41,12 @@ class Interactor(private val repo: MainRepository, private val retrofitService: 
             }
         })
     }
+
+    fun getSearchResultFromApi(search: String): Observable<List<Film>> = retrofitService.getFilmFromSearch(API.KEY, "ru-RU", search, 1)
+        .map {
+            Converter.convertApiListToDtoList(it.tmdbFilms)
+        }
+
     //Метод для сохранения настроек
     fun saveDefaultCategoryToPreferences(category: String) {
         preferences.saveDefaultCategory(category)

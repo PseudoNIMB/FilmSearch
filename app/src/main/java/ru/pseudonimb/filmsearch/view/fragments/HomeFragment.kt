@@ -131,7 +131,7 @@ class HomeFragment : Fragment() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy(
                 onError = {
-                    Toast.makeText(requireContext(), "Что-то пошло не так", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "@string/somethingwrong", Toast.LENGTH_SHORT).show()
                 },
                 onNext = {
                     filmsAdapter.addItems(it)

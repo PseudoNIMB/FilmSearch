@@ -5,7 +5,7 @@ import ru.pseudonimb.filmsearch.di.AppComponent
 import ru.pseudonimb.filmsearch.di.DaggerAppComponent
 import ru.pseudonimb.filmsearch.di.modules.DatabaseModule
 import ru.pseudonimb.filmsearch.di.modules.DomainModule
-import ru.pseudonimb.remote_module.RemoteModule
+import ru.pseudonimb.remote_module.DaggerRemoteComponent
 
 
 class App : Application() {
@@ -15,8 +15,9 @@ class App : Application() {
         super.onCreate()
         instance = this
         //Создаем компонент
+        val remoteProvider = DaggerRemoteComponent.create()
         dagger = DaggerAppComponent.builder()
-            .remoteModule(RemoteModule())
+            .remoteProvider(remoteProvider)
             .databaseModule(DatabaseModule())
             .domainModule(DomainModule(this))
             .build()

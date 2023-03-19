@@ -1,19 +1,15 @@
 package ru.pseudonimb.filmsearch.domain
 
-import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.kotlin.subscribeBy
 import io.reactivex.rxjava3.schedulers.Schedulers
 import io.reactivex.rxjava3.subjects.BehaviorSubject
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import ru.pseudonimb.filmsearch.data.API
 import ru.pseudonimb.filmsearch.data.MainRepository
 import ru.pseudonimb.filmsearch.data.entity.Film
 import ru.pseudonimb.filmsearch.data.preferences.PreferenceProvider
 import ru.pseudonimb.filmsearch.utils.Converter
 import ru.pseudonimb.remote_module.TmdbApi
-import ru.pseudonimb.remote_module.entity.TmdbResults
 
 class Interactor(private val repo: MainRepository, private val retrofitService: TmdbApi, private val preferences: PreferenceProvider) {
     var progressBarState: BehaviorSubject<Boolean> = BehaviorSubject.create()
@@ -22,24 +18,20 @@ class Interactor(private val repo: MainRepository, private val retrofitService: 
         //Показываем ProgressBar
         progressBarState.onNext(true)
         //Метод getDefaultCategoryFromPreferences() будет получать при каждом запросе нужный нам список фильмов
-        retrofitService.getFilms(getDefaultCategoryFromPreferences(), API.KEY, "ru-RU", page).enqueue(object : Callback<TmdbResults> {
-            override fun onResponse(call: Call<TmdbResults>, response: Response<TmdbResults>) {
-                val list = Converter.convertApiListToDtoList(response.body()?.tmdbFilms)
-                //Кладем фильмы в бд
-                //В случае успешного ответа кладем фильмы в БД и выключаем ProgressBar
-                Completable.fromSingle<List<Film>> {
-                    repo.putToDb(list)
+        retrofitService.getFilms(getDefaultCategoryFromPreferences(), API.KEY, "ru-RU", page)
+            .subscribeOn(Schedulers.io())
+            .map {
+                Converter.convertApiListToDtoList(it.tmdbFilms)
+            }
+            .subscribeBy(
+                onError = {
+                    progressBarState.onNext(false)
+                },
+                onNext = {
+                    progressBarState.onNext(false)
+                    repo.putToDb(it)
                 }
-                    .subscribeOn(Schedulers.io())
-                    .subscribe()
-                progressBarState.onNext(false)
-            }
-
-            override fun onFailure(call: Call<TmdbResults>, t: Throwable) {
-                //В случае провала выключаем ProgressBar
-                progressBarState.onNext(false)
-            }
-        })
+            )
     }
 
     fun getSearchResultFromApi(search: String): Observable<List<Film>> = retrofitService.getFilmFromSearch(API.KEY, "ru-RU", search, 1)

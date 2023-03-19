@@ -3,8 +3,8 @@ package ru.pseudonimb.filmsearch.view.rv_adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import ru.pseudonimb.filmsearch.R
 import ru.pseudonimb.filmsearch.data.entity.Film
-import ru.pseudonimb.filmsearch.databinding.FilmItemBinding
 import ru.pseudonimb.filmsearch.view.rv_viewholders.FilmViewHolder
 
 //в параметр передаем слушатель, чтобы мы потом могли обрабатывать нажатия из класса активити
@@ -18,8 +18,7 @@ class FilmListRecyclerAdapter(private val clickListener: OnItemClickListener)
 
     //В этом методе мы привязываем наш view holder и передаем туда "надутую" верстку нашего фильма
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return FilmViewHolder(FilmItemBinding.inflate(LayoutInflater.from(parent.context)
-            , parent,false))
+        return FilmViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.film_item, parent, false))
     }
 
     //В этом методе будет привзяка полей из объекта Film, к view из film_item.xml
@@ -27,8 +26,6 @@ class FilmListRecyclerAdapter(private val clickListener: OnItemClickListener)
         //Проверяем какой у нас ViewHolder
         when (holder) {
             is FilmViewHolder -> {
-
-
                 //Вызываем метод bind(), который мы создали и передаем туда объект
                 //из нашей базы данных с указанием позиции
                 holder.bind(items[position])

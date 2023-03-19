@@ -5,14 +5,14 @@ import ru.pseudonimb.filmsearch.di.modules.DatabaseModule
 import ru.pseudonimb.filmsearch.di.modules.DomainModule
 import ru.pseudonimb.filmsearch.viewmodel.HomeFragmentViewModel
 import ru.pseudonimb.filmsearch.viewmodel.SettingsFragmentViewModel
-import ru.pseudonimb.remote_module.RemoteModule
+import ru.pseudonimb.remote_module.RemoteProvider
 import javax.inject.Singleton
 
 @Singleton
 @Component(
     //Внедряем все модули, нужные для этого компонента
+    dependencies = [RemoteProvider::class],
     modules = [
-        RemoteModule::class,
         DatabaseModule::class,
         DomainModule::class
     ]

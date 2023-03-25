@@ -8,6 +8,7 @@ import androidx.room.Query
 import io.reactivex.rxjava3.core.Observable
 import ru.pseudonimb.filmsearch.data.entity.Film
 
+
 @Dao
 interface FilmDao {
     //Запрос на всю таблицу

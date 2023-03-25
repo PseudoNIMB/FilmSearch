@@ -1,7 +1,7 @@
 package ru.pseudonimb.filmsearch.utils
 
 import ru.pseudonimb.filmsearch.data.entity.Film
-import ru.pseudonimb.filmsearch.data.entity.TmdbFilm
+import ru.pseudonimb.remote_module.entity.TmdbFilm
 
 object Converter {
     fun convertApiListToDtoList(list: List<TmdbFilm>?): List<Film> {

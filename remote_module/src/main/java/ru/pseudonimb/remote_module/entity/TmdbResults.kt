@@ -1,8 +1,8 @@
-package ru.pseudonimb.filmsearch.data.entity
+package ru.pseudonimb.remote_module.entity
 
 import com.google.gson.annotations.SerializedName
 
-data class TmdbResultsDto(
+data class TmdbResults(
     @SerializedName("page")
     val page: Int,
     @SerializedName("results")

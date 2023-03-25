@@ -1,4 +1,4 @@
-package ru.pseudonimb.filmsearch.di.modules
+package ru.pseudonimb.remote_module
 
 import dagger.Module
 import dagger.Provides
@@ -7,9 +7,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import ru.pseudonimb.filmsearch.BuildConfig
-import ru.pseudonimb.filmsearch.data.ApiConstants
-import ru.pseudonimb.filmsearch.data.TmdbApi
+import ru.pseudonimb.remote_module.entity.ApiConstants
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 

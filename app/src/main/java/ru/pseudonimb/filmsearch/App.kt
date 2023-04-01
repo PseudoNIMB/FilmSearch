@@ -17,22 +17,6 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            //Задаем имя, описание и важность канала
-            val name = "WatchLaterChannel"
-            val descriptionText = "FilmsSearch notification Channel"
-            val importance = NotificationManager.IMPORTANCE_DEFAULT
-            //Создаем канал, передав в параметры его ID(строка), имя(строка), важность(константа)
-            val mChannel = NotificationChannel(CHANNEL_ID, name, importance)
-            //Отдельно задаем описание
-            mChannel.description = descriptionText
-            //Получаем доступ к менеджеру нотификаций
-            val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
-            //Регистрируем канал
-            notificationManager.createNotificationChannel(mChannel)
-        }
-
         instance = this
         //Создаем компонент
         val remoteProvider = DaggerRemoteComponent.create()
@@ -41,6 +25,19 @@ class App : Application() {
             .databaseModule(DatabaseModule())
             .domainModule(DomainModule(this))
             .build()
+
+        //Задаем имя, описание и важность канала
+        val name = "WatchLaterChannel"
+        val descriptionText = "FilmSearch notification Channel"
+        val importance = NotificationManager.IMPORTANCE_HIGH
+        //Создаем канал, передав в параметры его ID(строка), имя(строка), важность(константа)
+        val mChannel = NotificationChannel(CHANNEL_ID, name, importance)
+        //Отдельно задаем описание
+        mChannel.description = descriptionText
+        //Получаем доступ к менеджеру нотификаций
+        val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+        //Регистрируем канал
+        notificationManager.createNotificationChannel(mChannel)
     }
 
     companion object {

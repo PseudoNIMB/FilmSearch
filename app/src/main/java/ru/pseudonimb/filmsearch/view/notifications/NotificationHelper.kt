@@ -24,7 +24,7 @@ object NotificationHelper {
 
         val builder = NotificationCompat.Builder(context, NotificationConstants.CHANNEL_ID).apply {
             setSmallIcon(R.drawable.ic_outline_watch_later_24)
-            setContentTitle("Не забудьте посмотреть!")
+            setContentTitle("@strings/dontforget")
             setContentText(film.title)
             priority = NotificationCompat.PRIORITY_DEFAULT
             setContentIntent(pendingIntent)
@@ -49,7 +49,7 @@ object NotificationHelper {
                     notificationManager.notify(film.id, builder.build())
                 }
             })
-//Отправляем изначальную нотификацию в стандартном исполнении
+            //Отправляем изначальную нотификацию в стандартном исполнении
         notificationManager.notify(film.id, builder.build())
 
     }

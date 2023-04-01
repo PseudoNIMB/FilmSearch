@@ -1,4 +1,5 @@
 package ru.pseudonimb.filmsearch.view.notifications
 
-class NotificationConstants {
+object NotificationConstants {
+    const val CHANNEL_ID = "FIlmSearchChannel"
 }

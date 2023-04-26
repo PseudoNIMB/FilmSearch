@@ -6,13 +6,17 @@ import android.content.BroadcastReceiver
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import ru.pseudonimb.filmsearch.R
 import ru.pseudonimb.filmsearch.data.entity.Film
 import ru.pseudonimb.filmsearch.databinding.ActivityMainBinding
 import ru.pseudonimb.filmsearch.recievers.ConnectionChecker
-import ru.pseudonimb.filmsearch.view.fragments.*
+import ru.pseudonimb.filmsearch.view.fragments.DetailsFragment
+import ru.pseudonimb.filmsearch.view.fragments.HomeFragment
+import ru.pseudonimb.filmsearch.view.fragments.SettingsFragment
+import ru.pseudonimb.filmsearch.view.fragments.WatchLaterFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -62,19 +66,17 @@ class MainActivity : AppCompatActivity() {
 
     private fun initNavigation() {
         binding.bottomNavigation.setOnNavigationItemSelectedListener {
-
             when (it.itemId) {
                 R.id.home -> {
-                    val tag ="home"
+                    val tag = "home"
                     val fragment = checkFragmentExistence(tag)
-                    changeFragment(fragment?: HomeFragment(), tag)
+                    //В первом параметре, если фрагмент не найден и метод вернул null, то с помощью
+                    //элвиса мы вызываем создание нового фрагмента
+                    changeFragment( fragment?: HomeFragment(), tag)
                     true
                 }
-
                 R.id.favorites -> {
-                    val tag = "favorites"
-                    val fragment = checkFragmentExistence(tag)
-                    changeFragment(fragment?: FavoritesFragment(), tag)
+                    Toast.makeText(this, "Доступно в Pro версии", Toast.LENGTH_SHORT).show()
                     true
                 }
                 R.id.watch_later -> {
@@ -84,9 +86,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.selections -> {
-                    val tag = "selections"
-                    val fragment = checkFragmentExistence(tag)
-                    changeFragment( fragment?: SelectionsFragment(), tag)
+                    Toast.makeText(this, "Доступно в Pro версии", Toast.LENGTH_SHORT).show()
                     true
                 }
                 R.id.settings -> {

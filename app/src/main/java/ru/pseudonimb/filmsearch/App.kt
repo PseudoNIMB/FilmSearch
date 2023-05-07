@@ -3,7 +3,6 @@ package ru.pseudonimb.filmsearch
 import android.app.Application
 import android.app.NotificationChannel
 import android.app.NotificationManager
-import android.os.Build
 import ru.pseudonimb.filmsearch.di.AppComponent
 import ru.pseudonimb.filmsearch.di.DaggerAppComponent
 import ru.pseudonimb.filmsearch.di.modules.DatabaseModule
